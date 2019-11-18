@@ -14,7 +14,6 @@ public class OculusInput : MonoBehaviour
 
     private void Update()
     {
-        OVRInput.Update();
         if(OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger, controller) || Input.GetKeyDown("space")) {
             Debug.Log("Pressing");
             // If player is reaching into quiver
@@ -28,7 +27,7 @@ public class OculusInput : MonoBehaviour
             bow.pull();
         }
 
-        if (Input.GetKeyUp("space") || OVRInput.GetUp(OVRInput.Button.PrimaryIndexTrigger)) {
+        if (Input.GetKeyUp("space") || OVRInput.GetUp(OVRInput.Button.PrimaryIndexTrigger, controller)) {
             bow.release();
         }
     }
