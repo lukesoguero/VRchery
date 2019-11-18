@@ -16,8 +16,10 @@ public class OculusInput : MonoBehaviour
     {
         OVRInput.Update();
         if(OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger, controller) || Input.GetKeyDown("space")) {
+            Debug.Log("Pressing");
             // If player is reaching into quiver
             if (quiver.GetComponent<Collider>().bounds.Contains(hand.transform.position)) {
+                Debug.Log("In quiver");
                 hand.createArrow();
             }
         }
