@@ -32,6 +32,9 @@ namespace OVRTouchSample
         public const float TRIGGER_DEBOUNCE_TIME = 0.05f;
         public const float THUMB_DEBOUNCE_TIME = 0.15f;
 
+        public GameObject arrowPrefab = null;
+        public Arrow currentArrow = null;
+
         [SerializeField]
         private OVRInput.Controller m_controller;
         [SerializeField]
@@ -231,6 +234,14 @@ namespace OVRTouchSample
                     collider.transform.localScale = new Vector3(COLLIDER_SCALE_MIN, COLLIDER_SCALE_MIN, COLLIDER_SCALE_MIN);
                 }
             }
+        }
+
+        public void createArrow() 
+        {
+            GameObject arrowObj = Instantiate(arrowPrefab, transform);
+            arrowObj.transform.localPosition = new Vector3(0, 0, 0.2f);
+            arrowObj.transform.localEulerAngles = Vector3.zero;
+            currentArrow = arrowObj.GetComponent<Arrow>();
         }
     }
 }
