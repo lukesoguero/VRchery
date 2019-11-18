@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af5ff1d8d94cd734e83dd85906be233a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bow: {fileID: 0}
+  bow: {fileID: 2032731587}
   hand: {fileID: 1943841282}
   quiver: {fileID: 1949865599}
   controller: 2
@@ -927,3 +927,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2032731583}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2032731587 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 705318187586076703, guid: 6c3c0bfa92038bd4aa725e80a43ced1e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2032731583}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bed6d8822a925ec43a36f07d632808d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
