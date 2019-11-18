@@ -65,6 +65,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -175,6 +176,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -228,7 +230,7 @@ Transform:
   m_GameObject: {fileID: 8542102953145869890}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 8623957444106179151}
   m_Father: {fileID: 0}
@@ -246,9 +248,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4efde785f55475d4faf016df659306fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Speed: 2000
-  m_Tip: {fileID: 8386148805111352677}
-  m_RigidBody: {fileID: 0}
+  speed: 2000
+  tip: {fileID: 8386148805111352677}
 --- !u!54 &3544760493190169588
 Rigidbody:
   m_ObjectHideFlags: 0
