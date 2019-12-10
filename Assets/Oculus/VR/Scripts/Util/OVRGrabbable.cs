@@ -68,7 +68,7 @@ public class OVRGrabbable : MonoBehaviour
     {
         get { return m_snapOrientation; }
     }
-
+    
 	/// <summary>
 	/// An offset relative to the OVRGrabber where this object can snap when grabbed.
 	/// </summary>
@@ -107,6 +107,7 @@ public class OVRGrabbable : MonoBehaviour
     public Collider[] grabPoints
     {
         get { return m_grabPoints; }
+        set { m_grabPoints = value; }
     }
 
 	/// <summary>

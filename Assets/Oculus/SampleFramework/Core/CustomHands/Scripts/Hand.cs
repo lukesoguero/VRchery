@@ -34,6 +34,7 @@ namespace OVRTouchSample
 
         public GameObject arrowPrefab = null;
         public Arrow currentArrow = null;
+        public Explosive explosivePrefab = null;
 
         [SerializeField]
         private OVRInput.Controller m_controller;
@@ -94,6 +95,22 @@ namespace OVRTouchSample
             m_thumbsUpBlend = InputValueRateChange(m_isGivingThumbsUp, m_thumbsUpBlend);
 
             float flex = OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger, m_controller);
+
+            // Set current arrow for hand
+            /*
+            if (m_grabber.grabbedObject != null)
+            {
+                if (m_grabber.grabbedObject.name == "Arrow(Clone)")
+                {
+                    currentArrow = m_grabber.grabbedObject.GetComponent<Arrow>();
+                }
+            }
+            // Unset current arrow if arrow is dropped
+            else
+            {
+                currentArrow = null;
+            }
+            */
 
             bool collisionEnabled = m_grabber.grabbedObject == null && flex >= THRESH_COLLISION_FLEX;
             CollisionEnable(collisionEnabled);
@@ -239,9 +256,16 @@ namespace OVRTouchSample
         public void createArrow() 
         {
             GameObject arrowObj = Instantiate(arrowPrefab, transform);
-            arrowObj.transform.localPosition = new Vector3(0, 0, 0.2f);
+            arrowObj.transform.localPosition = new Vector3(0, 0, 0.3f);
             arrowObj.transform.localEulerAngles = Vector3.zero;
             currentArrow = arrowObj.GetComponent<Arrow>();
+        }
+
+        public void createExplosive()
+        {
+            Explosive explosiveObj = Instantiate(explosivePrefab, transform);
+            explosiveObj.transform.localPosition = new Vector3(0, 0, 0);
+            explosiveObj.transform.localEulerAngles = Vector3.zero;
         }
     }
 }

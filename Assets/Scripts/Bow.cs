@@ -13,8 +13,8 @@ public class Bow : MonoBehaviour
     public Transform start = null;
     public Transform socket = null;
     public Hand hand = null;
+    public Arrow currentArrow = null;
 
-    private Arrow currentArrow = null;
     private bool isPulling = false;
     private Animator animator = null;
 
@@ -51,8 +51,16 @@ public class Bow : MonoBehaviour
     }
 
     private void lockArrow() {
+        OVRGrabber handGrabber = hand.GetComponent<OVRGrabber>();
+        OVRGrabbable arrowGrabbable = hand.currentArrow.GetComponent<OVRGrabbable>();
+        Rigidbody rigidbody = hand.currentArrow.GetComponent<Rigidbody>();
+        handGrabber.ForceRelease(arrowGrabbable);
+        rigidbody.isKinematic = true;
+        rigidbody.useGravity = false;
+        arrowGrabbable.grabPoints = new Collider[0];  // Erase all grabPoints from arrow
+        arrowGrabbable.enabled = false;
         hand.currentArrow.transform.parent = socket;
-        hand.currentArrow.transform.localPosition = new Vector3(0, 0, 0.425f);
+        hand.currentArrow.transform.localPosition = new Vector3(0, 0, 0.33f);
         hand.currentArrow.transform.localEulerAngles = Vector3.zero;
         currentArrow = hand.currentArrow;
         hand.currentArrow = null;

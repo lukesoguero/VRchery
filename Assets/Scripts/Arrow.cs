@@ -6,10 +6,10 @@ public class Arrow : MonoBehaviour
    public Transform tip = null;
 
    private Rigidbody rigidbody = null;
-   private bool isStopped = true;
    private Vector3 lastPosition = Vector3.zero;
+   private bool isStopped = true; 
 
-   private void Awake() {
+    private void Awake() {
        rigidbody = GetComponent<Rigidbody>();
    }
 
@@ -20,19 +20,33 @@ public class Arrow : MonoBehaviour
         rigidbody.MoveRotation(Quaternion.LookRotation(rigidbody.velocity, transform.up));
 
         // Collision
+        /*
         if (Physics.Linecast(lastPosition, tip.position)) {
-            stop();
+           stop();
         }
-
+        */
         // Store position
         lastPosition = tip.position;
    }
-
-   private void stop() {
+    
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (!isStopped)  // If arrow is flying
+        {
+            stop();
+            if (collision.gameObject.tag == "Enemy")
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
+    
+    private void stop() {
        isStopped = true;
 
        rigidbody.isKinematic = true;
        rigidbody.useGravity = false;
+
    }
 
    public void fire(float pullValue) {
@@ -47,3 +61,4 @@ public class Arrow : MonoBehaviour
    }
 }
 
+  
