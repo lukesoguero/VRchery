@@ -56,9 +56,18 @@ public class Explosive : MonoBehaviour
             Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
             foreach (Collider hit in colliders)
             {
-                if (hit.gameObject.tag == "Enemy")
+                if (hit.gameObject.tag == "Enemy" && hit.gameObject.GetComponentInParent<Enemy>().dead == false)
                 {
                     hit.gameObject.GetComponentInParent<Animator>().enabled = false;
+                    if (hit.gameObject.GetComponentInParent<Enemy>())
+                    {
+                        hit.gameObject.GetComponentInParent<Enemy>().Die();
+                    }
+                    else if (hit.gameObject.GetComponentInParent<ShootingEnemy>())
+                    {
+                        hit.gameObject.GetComponentInParent<ShootingEnemy>().Die();
+                    }
+
                 }
 
                 if (hit.gameObject.tag == "Explosive" && hit.transform != transform)

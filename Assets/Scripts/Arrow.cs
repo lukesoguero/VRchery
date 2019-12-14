@@ -34,10 +34,16 @@ public class Arrow : MonoBehaviour
         if (!isStopped)  // If arrow is flying
         {
             stop();
-            if (collision.gameObject.tag == "Enemy")
+            if (collision.gameObject.tag == "Cube")
             {
                 Destroy(gameObject);
             }
+            //Debug.Log("Arrow collision: " + collision.gameObject.name);
+            /*            if (collision.gameObject.tag == "Enemy")
+                        {
+                            Destroy(gameObject);
+                            collision.gameObject.GetComponentInParent<Enemy>().Die();
+                        }*/
         }
     }
     
@@ -50,6 +56,7 @@ public class Arrow : MonoBehaviour
    }
 
    public void fire(float pullValue) {
+        GetComponent<TrailRenderer>().enabled = true;
        isStopped = false;
        transform.parent = null;
 

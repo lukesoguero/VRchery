@@ -122,8 +122,8 @@ namespace OVRTouchSample
         // debouncing.
         private void UpdateCapTouchStates()
         {
-            m_isPointing = !OVRInput.Get(OVRInput.NearTouch.PrimaryIndexTrigger, m_controller);
-            m_isGivingThumbsUp = !OVRInput.Get(OVRInput.NearTouch.PrimaryThumbButtons, m_controller);
+            //m_isPointing = !OVRInput.Get(OVRInput.NearTouch.PrimaryIndexTrigger, m_controller);
+            //m_isGivingThumbsUp = !OVRInput.Get(OVRInput.NearTouch.PrimaryThumbButtons, m_controller);
         }
 
         private void LateUpdate()
@@ -204,7 +204,7 @@ namespace OVRTouchSample
 
             // Flex
             // blend between open hand and fully closed fist
-            float flex = OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger, m_controller);
+            float flex = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, m_controller); // changed
             m_animator.SetFloat(m_animParamIndexFlex, flex);
 
             // Point

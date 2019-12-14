@@ -194,10 +194,13 @@ public class Spawner : MonoBehaviour
     // Call this function from the enemy when it "dies" to remove an enemy count
     public void killEnemy(int sID)
     {
+        Debug.Log("kill enemy");
         // if the enemy's spawnId is equal to this spawnersID then remove an enemy count
         if (SpawnID == sID)
         {
+            Debug.Log("numEnemies decreased");
             numEnemy--;
+            Debug.Log(numEnemy);
         }
     }
     //enable the spawner based on spawnerID
