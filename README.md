@@ -1,2 +1,2 @@
 # VRchery
-A VR archery game for Oculus.
+VRchery is a VR archery game for Oculus. The game allows you to pull arrows from your quiver, load them into your bow, and shoot various targets that physically interact with the arrows. In addition, you can throw explosives that will detonate when they are shot with an arrow. The game involves surviving multiple waves of enemies that get increasingly harder. Some enemies run towards you while others stand far away and shoot projectiles that must be dodged. If an enemy reaches you or you are hit by a projectile you die and restart from the beginning.
